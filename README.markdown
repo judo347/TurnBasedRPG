@@ -9,7 +9,9 @@ With focus on stats and items!
 ## Initializing Phase ##
 
 ### Brainstorm ###
-Items. Inventory. Drops. Stats. Menu for changeing items, only 1 per slot. 
+Items. Inventory. Drops. Stats. Menu for changeing items, only 1 per slot, random lines - from text array. 
+
+Some item that makes you go to camp with 100% chance
 
 Clamp-function: max and min of values, and make sure the value is between.
 
