@@ -10,18 +10,27 @@
 #define CAMPMODE 2
 #define FIGHTMODE 3
 
+/* TRY JENER METHOD OF STRUCTING */
+struct character
+{
+    int health;
+    int attack;
+};
+
+typedef struct character character;
 
 
-//#include <conio.h>
-
+int rng(int possible);
 void clearScr(); /* CLEARS THE SCREEN */
+character firstPlayerCreation(character person);
 int mainMenu(); /* returns: 0 = new game, 1 = load game, 2 = exit */
 int campAccess(int campValue); /* 0 = enter without roll, 1 = roll */
 int campAccess2();
 int campMenu();
 
 /*
-ALT VIRKER!
+ToDo:
+Let user choose player name.
 
 BUGS:
 I campMenu() - crasher hvis man ikke trykker noget før man vaelger inventory.
@@ -44,7 +53,12 @@ int main()
         {
             mainMenuChoice = mainMenu();
             if(mainMenuChoice == 0) /* NEW GAME = GO TO CAMP */
+            {
                 state = CAMPMODE;
+                character player;
+                player = firstPlayerCreation(player);
+                printf("%d, %d\n", player.health, player.attack);
+            }
             else if(mainMenuChoice == 1) /* LOAD GAME*/
                 printf("LOAD GAME: THIS FUNCTION HAS NOT YET BEEN CREATED!\n");
             else if(mainMenuChoice == 2) /* EXIT GAME */
@@ -73,10 +87,48 @@ int main()
     return 0;
 }
 
+/* HELP-FUNCTIONS SECTION */
+
 int rng(int possible)
 {
     return possible = rand() % possible;
 }
+
+void clearScr() /* CLEARS THE SCREEN */
+{
+    system("@cls||clear");
+}
+
+/* PRE-LAUCH SECTION */
+int mainMenu()
+{
+    int choice = 0, input1, input2;
+    while(1)
+    {
+        printf("Welcome to the Turn Based RPG: with focus on items!\n");
+        (choice == 0) ? (printf("\t  ->NEW GAME<-\n")) : (printf("\t   new game\n")); /* MARKED THEN UNMARKED */
+        (choice == 1) ? (printf("\t->LOAD GAME<-\n")) : (printf("\t   load game\n"));
+        (choice == 2) ? (printf("\t   ->EXIT<-\n")) : (printf("\t    exit\n"));
+        input1 = getch(); input2 = getch(); /* NEED SECOND BYTE */
+        //printf("%d, %d\n", input1, input2); /* TEMP */
+        switch (input2) {
+            case 72: if(choice > 0) choice--; break; /* ARROW - UP */
+            case 80: if(choice < 2) choice++; break; /* ARROW - DOWN */
+            case 13: return choice; break; /* ENTER */
+        }
+        clearScr();
+    }
+}
+
+character firstPlayerCreation(character player)
+{
+    player.health = 100;
+    player.attack = 10;
+
+    return player;
+}
+
+/* CAMP SECTION */
 
 int campAccess(int campValue)
 {
@@ -136,27 +188,5 @@ int campMenu()
     return choice;
 }
 
-int mainMenu()
-{
-    int choice = 0, input1, input2;
-    while(1)
-    {
-        printf("Welcome to the Turn Based RPG: with focus on items!\n");
-        (choice == 0) ? (printf("\t  ->NEW GAME<-\n")) : (printf("\t   new game\n")); /* MARKED THEN UNMARKED */
-        (choice == 1) ? (printf("\t->LOAD GAME<-\n")) : (printf("\t   load game\n"));
-        (choice == 2) ? (printf("\t   ->EXIT<-\n")) : (printf("\t    exit\n"));
-        input1 = getch(); input2 = getch(); /* NEED SECOND BYTE */
-        //printf("%d, %d\n", input1, input2); /* TEMP */
-        switch (input2) {
-            case 72: if(choice > 0) choice--; break; /* ARROW - UP */
-            case 80: if(choice < 2) choice++; break; /* ARROW - DOWN */
-            case 13: return choice; break; /* ENTER */
-        }
-        clearScr();
-    }
-}
 
-void clearScr() /* CLEARS THE SCREEN */
-{
-    system("@cls||clear");
-}
+
