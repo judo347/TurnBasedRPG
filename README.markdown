@@ -7,7 +7,15 @@ With focus on stats and items!
 - Asserts?
 
 ### Additional Content: ###
-- 
+- Create list of monsters
+- Attack function that includes roll for dmg and hit chance
+- List of loot
+- Inventory:
+  - Inventory list or file
+  - Inventory menu
+- Load function
+- Save function
+
 
 ## Bugs: ##
 - I campMenu() - Crasher når man ikke rykker op eller ned før man trykker enter.
