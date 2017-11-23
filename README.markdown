@@ -2,9 +2,10 @@
 With focus on stats and items!
 
 ## Todo: ##
-- Phase 2: fight
-- Flow charts
-- Psudo code
+- Let the user choose the player name.
+
+## Bugs: ##
+- I campMenu() - Crasher når man ikke rykker op eller ned før man trykker enter.
 
 ## Initializing Phase ##
 
