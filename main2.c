@@ -13,6 +13,7 @@
 /* TRY JENER METHOD OF STRUCTING */
 struct character
 {
+    char name[20];
     int health;
     int attack;
 };
@@ -23,6 +24,7 @@ typedef struct character character;
 int rng(int possible);
 void clearScr(); /* CLEARS THE SCREEN */
 character firstPlayerCreation(character person);
+character getCharacterName(character player);
 int mainMenu(); /* returns: 0 = new game, 1 = load game, 2 = exit */
 int campAccess(int campValue); /* 0 = enter without roll, 1 = roll */
 int campAccess2();
@@ -56,8 +58,9 @@ int main()
             {
                 state = CAMPMODE;
                 character player;
+                player = getCharacterName(player);
                 player = firstPlayerCreation(player);
-                printf("%d, %d\n", player.health, player.attack);
+                printf("%s, %d, %d\n", player.name, player.health, player.attack);
             }
             else if(mainMenuChoice == 1) /* LOAD GAME*/
                 printf("LOAD GAME: THIS FUNCTION HAS NOT YET BEEN CREATED!\n");
@@ -124,6 +127,14 @@ character firstPlayerCreation(character player)
 {
     player.health = 100;
     player.attack = 10;
+
+    return player;
+}
+
+character getCharacterName(character player)
+{
+    printf("Please enter a character name:\n");
+    scanf("%s", player.name);
 
     return player;
 }
