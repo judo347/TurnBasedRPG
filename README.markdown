@@ -15,9 +15,14 @@ With focus on stats and items!
 - Inventory:
   - Inventory list or file
   - Inventory menu
+  - Inventory show function
+- Loot after fight
 - Load function
 - Save function
 
+#### Maybe: ####
+- Coins for repair?
+- Magic skills?
 
 ## Bugs: ##
 - I campMenu() - Crasher når man ikke rykker op eller ned før man trykker enter.
