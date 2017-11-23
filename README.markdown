@@ -2,7 +2,12 @@
 With focus on stats and items!
 
 ## Todo: ##
-- Let the user choose the player name.
+### Improvements: ###
+- Add wrong input handling (on user inputs), char name.
+- Asserts?
+
+### Additional Content: ###
+- 
 
 ## Bugs: ##
 - I campMenu() - Crasher når man ikke rykker op eller ned før man trykker enter.
