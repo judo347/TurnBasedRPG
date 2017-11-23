@@ -8,6 +8,8 @@ With focus on stats and items!
 
 ### Additional Content: ###
 - Create list of monsters
+  - Mob struct
+  - Function that creates array of mob structs and fills them with unique mobs and unique stats. (Some random aspect)?
 - Attack function that includes roll for dmg and hit chance
 - List of loot
 - Inventory:
